@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HistoryHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">issdistance</a> &gt; <a href="index.source.html" class="el_package">at.fhv.issdistance.handlers</a> &gt; <span class="el_source">HistoryHandler.java</span></div><h1>HistoryHandler.java</h1><pre class="source lang-java linenums">package at.fhv.issdistance.handlers;
+
+// Start of user code (user defined imports)
+import at.fhv.issdistance.models.DistanceHistoryItem;
+import at.fhv.issdistance.models.User;
+// End of user code
+
+public class HistoryHandler {
+	// Start of user code (user defined attributes)
+	
+	// End of user code
+	
+
+	private static HistoryHandler INSTANCE;
+	
+	private HistoryHandler(){
+	    // singleton
+	}
+	
+	public static HistoryHandler getInstance(){
+<span class="nc bnc" id="L21" title="All 2 branches missed.">	    if(INSTANCE == null){</span>
+<span class="nc" id="L22">	        INSTANCE = new HistoryHandler();</span>
+	    }
+	
+<span class="nc" id="L25">	    return INSTANCE;</span>
+	}
+	
+	public at.fhv.issdistance.models.DistanceHistory getHistory(String token) throws Exception {
+		// Start of user code getHistory
+<span class="nc bnc" id="L30" title="All 4 branches missed.">		if (token != null &amp;&amp; !token.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L31">			User user = AuthHandler.getInstance().getUserByToken(token);</span>
+<span class="nc" id="L32">			return user.getHistory();</span>
+
+		} else {
+<span class="nc" id="L35">			throw new Exception(&quot;Token is empty&quot;);</span>
+		}
+		// End of user code
+	}
+	
+	public void addHistory(String token, at.fhv.issdistance.models.DiscoveredResult result) throws Exception {
+		// Start of user code addHistory
+<span class="nc" id="L42">		User user = AuthHandler.getInstance().getUserByToken(token);</span>
+<span class="nc" id="L43">		DistanceHistoryItem item = new DistanceHistoryItem();</span>
+<span class="nc" id="L44">		item.setResult(result);</span>
+<span class="nc" id="L45">		item.setLatitude(result.getLatitude());</span>
+<span class="nc" id="L46">		item.setLongitude(result.getLongitude());</span>
+<span class="nc" id="L47">		user.getHistory().getItems().add(item);</span>
+		// End of user code
+<span class="nc" id="L49">	}</span>
+	
+	// Start of user code (user defined operations)
+	
+	// End of user code
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AnalysisHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">issdistance</a> &gt; <a href="index.source.html" class="el_package">at.fhv.issdistance.handlers</a> &gt; <span class="el_source">AnalysisHandler.java</span></div><h1>AnalysisHandler.java</h1><pre class="source lang-java linenums">package at.fhv.issdistance.handlers;
+
+// Start of user code (user defined imports)
+import at.fhv.issdistance.models.DiscoveredResult;
+import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.fluent.Request;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+// End of user code
+
+public class AnalysisHandler {
+	// Start of user code (user defined attributes)
+	
+	// End of user code
+	
+
+	private static AnalysisHandler INSTANCE;
+	
+	private AnalysisHandler(){
+	    // singleton
+	}
+	
+	public static AnalysisHandler getInstance(){
+<span class="fc bfc" id="L27" title="All 2 branches covered.">	    if(INSTANCE == null){</span>
+<span class="fc" id="L28">	        INSTANCE = new AnalysisHandler();</span>
+	    }
+	
+<span class="fc" id="L31">	    return INSTANCE;</span>
+	}
+	
+	public at.fhv.issdistance.models.DiscoveredResult analyze(String token) throws Exception {
+		// Start of user code analyze
+<span class="pc bpc" id="L36" title="2 of 4 branches missed.">		if(token != null &amp;&amp; !token.equals(&quot;&quot;)){</span>
+<span class="fc" id="L37">			DiscoveredResult discoveredResult = new DiscoveredResult();</span>
+<span class="fc" id="L38">			HttpResponse response = Request.Get(&quot;http://api.open-notify.org/iss-now.json&quot;).execute().returnResponse();</span>
+<span class="fc" id="L39">			String result = IOUtils.toString(response.getEntity().getContent(), &quot;UTF-8&quot;);</span>
+<span class="fc" id="L40">			Gson gson = new GsonBuilder().create();</span>
+<span class="fc" id="L41">			JsonObject jsonObject = gson.fromJson(result, JsonObject.class);</span>
+<span class="fc" id="L42">			discoveredResult.setMessage(jsonObject.get(&quot;message&quot;).toString());</span>
+<span class="fc" id="L43">			discoveredResult.setTimestamp(jsonObject.get(&quot;timestamp&quot;).getAsInt());</span>
+<span class="fc" id="L44">			JsonObject pos = jsonObject.getAsJsonObject(&quot;iss_position&quot;);</span>
+<span class="fc" id="L45">			discoveredResult.setLatitude(pos.get(&quot;latitude&quot;).getAsString());</span>
+<span class="fc" id="L46">			discoveredResult.setLongitude(pos.get(&quot;longitude&quot;).getAsString());</span>
+<span class="fc" id="L47">            HistoryHandler.getInstance().addHistory(token, discoveredResult);</span>
+<span class="fc" id="L48">			return discoveredResult;</span>
+		}
+		else {
+<span class="nc" id="L51">			throw new Exception(&quot;Invalid authentication&quot;);</span>
+		}
+		// End of user code
+	}
+	
+	// Start of user code (user defined operations)
+	
+	// End of user code
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
