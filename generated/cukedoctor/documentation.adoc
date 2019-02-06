@@ -35,20 +35,20 @@
 |Status
 
 12+^|*<<Automated-User-Acceptance-Tests-for-the-ISS-Distance-Finder>>*
-|1
-|1
-|2
-|6
-|0
-|1
-|0
 |2
 |0
-|9
-|08s 856ms
-|[red]#*failed*#
+|2
+|8
+|0
+|0
+|0
+|0
+|0
+|8
+|07s 163ms
+|[green]#*passed*#
 12+^|*Totals*
-|1|1|2|6|0|1|0|2|0|9 2+|08s 856ms
+|2|0|2|8|0|0|0|0|0|8 2+|07s 163ms
 |===
 
 == *Features*
@@ -63,30 +63,28 @@ endif::[]
 
 ==========
 Given ::
-Open https://issdistance-staging.herokuapp.com/ icon:thumbs-up[role="green",title="Passed"] [small right]#(02s 151ms)#
+Open https://issdistance-staging.herokuapp.com/ icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 614ms)#
 ==========
 
 ==== Scenario: Test login and logout
 
 ==========
 Given ::
-Login with user 'testUser' icon:thumbs-up[role="green",title="Passed"] [small right]#(02s 209ms)#
+Login with user 'testUser' icon:thumbs-up[role="green",title="Passed"] [small right]#(835ms)#
 When ::
-I press logout icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 316ms)#
+I press logout icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 083ms)#
 Then ::
 I see the login page icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ==========
 
-==== Scenario: Test refresh icon:thumbs-down[role="red",title="Failed"]
+==== Scenario: Test refresh
 
 ==========
 Given ::
-Login with user 'testUser' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 354ms)#
-When ::
-Click on Refresh icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+Login with user 'testUser' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 182ms)#
 Then ::
-Lat/Lng changed icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+Click on Refresh icon:thumbs-up[role="green",title="Passed"] [small right]#(509ms)#
 And ::
-I press logout icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+I press logout icon:thumbs-up[role="green",title="Passed"] [small right]#(772ms)#
 ==========
 
