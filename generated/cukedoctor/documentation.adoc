@@ -45,10 +45,10 @@
 |0
 |0
 |8
-|07s 163ms
+|09s 255ms
 |[green]#*passed*#
 12+^|*Totals*
-|2|0|2|8|0|0|0|0|0|8 2+|07s 163ms
+|2|0|2|8|0|0|0|0|0|8 2+|09s 255ms
 |===
 
 == *Features*
@@ -63,16 +63,16 @@ endif::[]
 
 ==========
 Given ::
-Open https://issdistance-staging.herokuapp.com/ icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 614ms)#
+Open https://issdistance-staging.herokuapp.com/ icon:thumbs-up[role="green",title="Passed"] [small right]#(02s 310ms)#
 ==========
 
 ==== Scenario: Test login and logout
 
 ==========
 Given ::
-Login with user 'testUser' icon:thumbs-up[role="green",title="Passed"] [small right]#(835ms)#
+Login with user 'testUser' icon:thumbs-up[role="green",title="Passed"] [small right]#(02s 138ms)#
 When ::
-I press logout icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 083ms)#
+I press logout icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 247ms)#
 Then ::
 I see the login page icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
 ==========
@@ -81,10 +81,10 @@ I see the login page icon:thumbs-up[role="green",title="Passed"] [small right]#(
 
 ==========
 Given ::
-Login with user 'testUser' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 182ms)#
+Login with user 'testUser' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 285ms)#
 Then ::
-Click on Refresh icon:thumbs-up[role="green",title="Passed"] [small right]#(509ms)#
+Click on Refresh icon:thumbs-up[role="green",title="Passed"] [small right]#(540ms)#
 And ::
-I press logout icon:thumbs-up[role="green",title="Passed"] [small right]#(772ms)#
+I press logout icon:thumbs-up[role="green",title="Passed"] [small right]#(818ms)#
 ==========
 
