@@ -1,0 +1,92 @@
+:toc: right
+:backend: html5
+:doctitle: Living Documentation
+:doctype: book
+:icons: font
+:!numbered:
+:!linkcss:
+:sectanchors:
+:sectlink:
+:docinfo:
+:source-highlighter: highlightjs
+:toclevels: 3
+:hardbreaks:
+:chapter-label: Chapter
+:version-label: Version
+
+= *Living Documentation*
+
+== *Summary*
+[cols="12*^m", options="header,footer"]
+|===
+3+|Scenarios 7+|Steps 2+|Features: 1
+
+|[green]#*Passed*#
+|[red]#*Failed*#
+|Total
+|[green]#*Passed*#
+|[red]#*Failed*#
+|[purple]#*Skipped*#
+|[maroon]#*Pending*#
+|[yellow]#*Undefined*#
+|[blue]#*Missing*#
+|Total
+|Duration
+|Status
+
+12+^|*<<Automated-User-Acceptance-Tests-for-the-ISS-Distance-Finder>>*
+|1
+|1
+|2
+|6
+|0
+|1
+|0
+|2
+|0
+|9
+|09s 541ms
+|[red]#*failed*#
+12+^|*Totals*
+|1|1|2|6|0|1|0|2|0|9 2+|09s 541ms
+|===
+
+== *Features*
+
+[[Automated-User-Acceptance-Tests-for-the-ISS-Distance-Finder, Automated User Acceptance Tests for the ISS Distance Finder]]
+=== *Automated User Acceptance Tests for the ISS Distance Finder*
+
+ifndef::backend-pdf[]
+minmax::Automated-User-Acceptance-Tests-for-the-ISS-Distance-Finder[]
+endif::[]
+==== Background
+
+==========
+Given ::
+Open https://issdistance-staging.herokuapp.com/ icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 887ms)#
+==========
+
+==== Scenario: Test login and logout
+
+==========
+Given ::
+Login with user 'testUser' icon:thumbs-up[role="green",title="Passed"] [small right]#(02s 528ms)#
+When ::
+I press logout icon:thumbs-up[role="green",title="Passed"] [small right]#(809ms)#
+Then ::
+I see the login page icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+==========
+
+==== Scenario: Test refresh icon:thumbs-down[role="red",title="Failed"]
+
+==========
+Given ::
+Login with user 'testUser' icon:thumbs-up[role="green",title="Passed"] [small right]#(01s 241ms)#
+When ::
+Click on Refresh icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+Then ::
+Lat/Lng changed icon:thumbs-down[role="yellow",title="Undefined"] [small right]#(000ms)#
+And ::
+I press logout icon:thumbs-down[role="purple",title="Skipped"] [small right]#(000ms)#
+==========
+
