@@ -18,21 +18,21 @@ public class HistoryHandler {
 	}
 	
 	public static HistoryHandler getInstance(){
-<span class="nc bnc" id="L21" title="All 2 branches missed.">	    if(INSTANCE == null){</span>
-<span class="nc" id="L22">	        INSTANCE = new HistoryHandler();</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">	    if(INSTANCE == null){</span>
+<span class="fc" id="L22">	        INSTANCE = new HistoryHandler();</span>
 	    }
 	
-<span class="nc" id="L25">	    return INSTANCE;</span>
+<span class="fc" id="L25">	    return INSTANCE;</span>
 	}
 	
 	public at.fhv.issdistance.models.DistanceHistory getHistory(String token) throws Exception {
 		// Start of user code getHistory
-<span class="nc bnc" id="L30" title="All 4 branches missed.">		if (token != null &amp;&amp; !token.equals(&quot;&quot;)) {</span>
+<span class="pc bpc" id="L30" title="1 of 4 branches missed.">		if (token != null &amp;&amp; !token.equals(&quot;&quot;)) {</span>
 <span class="nc" id="L31">			User user = AuthHandler.getInstance().getUserByToken(token);</span>
 <span class="nc" id="L32">			return user.getHistory();</span>
 
 		} else {
-<span class="nc" id="L35">			throw new Exception(&quot;Token is empty&quot;);</span>
+<span class="fc" id="L35">			throw new Exception(&quot;Token is empty&quot;);</span>
 		}
 		// End of user code
 	}

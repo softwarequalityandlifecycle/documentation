@@ -1,12 +1,12 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 issdistance,at.fhv.issdistance.models,DistanceHistoryItem,33,0,0,0,13,0,7,0,7,0
 issdistance,at.fhv.issdistance.models,DiscoveredResult,43,0,0,0,17,0,9,0,9,0
-issdistance,at.fhv.issdistance.models,DistanceHistory,15,0,0,0,5,0,3,0,3,0
+issdistance,at.fhv.issdistance.models,DistanceHistory,7,8,0,0,3,2,2,1,2,1
 issdistance,at.fhv.issdistance.models,ISS_position,23,0,0,0,9,0,5,0,5,0
-issdistance,at.fhv.issdistance.models,User,23,0,0,0,9,0,5,0,5,0
-issdistance,at.fhv.issdistance.handlers,HistoryHandler,52,0,6,0,14,0,6,0,3,0
-issdistance,at.fhv.issdistance.handlers,AuthHandler,89,0,16,0,22,0,13,0,5,0
-issdistance,at.fhv.issdistance.handlers,AnalysisHandler,79,0,6,0,17,0,5,0,2,0
+issdistance,at.fhv.issdistance.models,User,0,23,0,0,0,9,0,5,0,5
+issdistance,at.fhv.issdistance.handlers,HistoryHandler,33,19,1,5,9,5,2,4,1,2
+issdistance,at.fhv.issdistance.handlers,AuthHandler,0,89,2,14,0,22,2,11,0,5
+issdistance,at.fhv.issdistance.handlers,AnalysisHandler,60,19,1,5,12,5,1,4,0,2
 issdistance,at.fhv.issdistance.endpoints,HistoryEndpoint,7,0,0,0,2,0,2,0,2,0
 issdistance,at.fhv.issdistance.endpoints,AuthEndpoint,11,0,0,0,4,0,3,0,3,0
 issdistance,at.fhv.issdistance.endpoints,AnalysisEndpoint,7,0,0,0,2,0,2,0,2,0

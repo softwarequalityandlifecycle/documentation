@@ -9,60 +9,60 @@ import java.util.Map;
 
 public class AuthHandler {
 	// Start of user code (user defined attributes)
-<span class="nc" id="L12">	protected Map&lt;String, User&gt; users = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L12">	protected Map&lt;String, User&gt; users = new HashMap&lt;&gt;();</span>
 	// End of user code
 	
 
 	private static AuthHandler INSTANCE;
 	
-<span class="nc" id="L18">	private AuthHandler(){</span>
+<span class="fc" id="L18">	private AuthHandler(){</span>
 	    // singleton
-<span class="nc" id="L20">	}</span>
+<span class="fc" id="L20">	}</span>
 	
 	public static AuthHandler getInstance(){
-<span class="nc bnc" id="L23" title="All 2 branches missed.">	    if(INSTANCE == null){</span>
-<span class="nc" id="L24">	        INSTANCE = new AuthHandler();</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">	    if(INSTANCE == null){</span>
+<span class="fc" id="L24">	        INSTANCE = new AuthHandler();</span>
 	    }
 	
-<span class="nc" id="L27">	    return INSTANCE;</span>
+<span class="fc" id="L27">	    return INSTANCE;</span>
 	}
 	
 	public void logout(String token) throws Exception {
 		// Start of user code logout
-<span class="nc bnc" id="L32" title="All 4 branches missed.">		if(token != null &amp;&amp; !token.equals(&quot;&quot;)) {</span>
-<span class="nc" id="L33">			users.remove(token);</span>
+<span class="fc bfc" id="L32" title="All 4 branches covered.">		if(token != null &amp;&amp; !token.equals(&quot;&quot;)) {</span>
+<span class="fc" id="L33">			users.remove(token);</span>
 		}
 		else {
-<span class="nc" id="L36">			throw new Exception(&quot;token is empty.&quot;);</span>
+<span class="fc" id="L36">			throw new Exception(&quot;token is empty.&quot;);</span>
 		}
 		// End of user code
-<span class="nc" id="L39">	}</span>
+<span class="fc" id="L39">	}</span>
 	
 	public at.fhv.issdistance.models.User getUserByToken(String token) throws Exception {
 		// Start of user code getUserByToken
 
-<span class="nc bnc" id="L44" title="All 4 branches missed.">		if(token.equals(&quot;&quot;) || token == null) {</span>
-<span class="nc" id="L45">			throw new Exception();</span>
+<span class="pc bpc" id="L44" title="1 of 4 branches missed.">		if(token.equals(&quot;&quot;) || token == null) {</span>
+<span class="fc" id="L45">			throw new Exception();</span>
 		}
 
-<span class="nc" id="L48">		return users.get(token);</span>
+<span class="fc" id="L48">		return users.get(token);</span>
 		// End of user code
 	}
 	
 	public String login(String username) throws Exception {
 		// Start of user code login
-<span class="nc bnc" id="L54" title="All 4 branches missed.">		if (username != null &amp;&amp; !username.equals(&quot;&quot;)) {</span>
-<span class="nc" id="L55">			String token = DigestUtils.md2Hex(username);</span>
-<span class="nc bnc" id="L56" title="All 2 branches missed.">			if (!users.containsKey(token)) {</span>
-<span class="nc" id="L57">				User user = new User();</span>
-<span class="nc" id="L58">				user.setUsername(username);</span>
-<span class="nc" id="L59">				user.setHistory(new DistanceHistory());</span>
-<span class="nc" id="L60">				users.put(token, user);</span>
+<span class="fc bfc" id="L54" title="All 4 branches covered.">		if (username != null &amp;&amp; !username.equals(&quot;&quot;)) {</span>
+<span class="fc" id="L55">			String token = DigestUtils.md2Hex(username);</span>
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">			if (!users.containsKey(token)) {</span>
+<span class="fc" id="L57">				User user = new User();</span>
+<span class="fc" id="L58">				user.setUsername(username);</span>
+<span class="fc" id="L59">				user.setHistory(new DistanceHistory());</span>
+<span class="fc" id="L60">				users.put(token, user);</span>
 			}
-<span class="nc" id="L62">			return token;</span>
+<span class="fc" id="L62">			return token;</span>
 		}
 		else {
-<span class="nc" id="L65">			throw new Exception(&quot;username is empty!&quot;);</span>
+<span class="fc" id="L65">			throw new Exception(&quot;username is empty!&quot;);</span>
 		}
 		// End of user code
 	}

@@ -24,16 +24,16 @@ public class AnalysisHandler {
 	}
 	
 	public static AnalysisHandler getInstance(){
-<span class="nc bnc" id="L27" title="All 2 branches missed.">	    if(INSTANCE == null){</span>
-<span class="nc" id="L28">	        INSTANCE = new AnalysisHandler();</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">	    if(INSTANCE == null){</span>
+<span class="fc" id="L28">	        INSTANCE = new AnalysisHandler();</span>
 	    }
 	
-<span class="nc" id="L31">	    return INSTANCE;</span>
+<span class="fc" id="L31">	    return INSTANCE;</span>
 	}
 	
 	public at.fhv.issdistance.models.DiscoveredResult analyze(String token) throws Exception {
 		// Start of user code analyze
-<span class="nc bnc" id="L36" title="All 4 branches missed.">		if(token != null &amp;&amp; !token.equals(&quot;&quot;)){</span>
+<span class="pc bpc" id="L36" title="1 of 4 branches missed.">		if(token != null &amp;&amp; !token.equals(&quot;&quot;)){</span>
 <span class="nc" id="L37">			DiscoveredResult discoveredResult = new DiscoveredResult();</span>
 <span class="nc" id="L38">			HttpResponse response = Request.Get(&quot;http://api.open-notify.org/iss-now.json&quot;).execute().returnResponse();</span>
 <span class="nc" id="L39">			String result = IOUtils.toString(response.getEntity().getContent(), &quot;UTF-8&quot;);</span>
@@ -48,7 +48,7 @@ public class AnalysisHandler {
 <span class="nc" id="L48">			return discoveredResult;</span>
 		}
 		else {
-<span class="nc" id="L51">			throw new Exception(&quot;Invalid authentication&quot;);</span>
+<span class="fc" id="L51">			throw new Exception(&quot;Invalid authentication&quot;);</span>
 		}
 		// End of user code
 	}
