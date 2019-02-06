@@ -2,7 +2,6 @@ GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_
 issdistance,at.fhv.issdistance.models,DistanceHistoryItem,9,24,0,0,3,10,3,4,3,4
 issdistance,at.fhv.issdistance.models,DiscoveredResult,6,37,0,0,2,15,2,7,2,7
 issdistance,at.fhv.issdistance.models,DistanceHistory,4,11,0,0,2,3,1,2,1,2
-issdistance,at.fhv.issdistance.models,ISS_position,23,0,0,0,9,0,5,0,5,0
 issdistance,at.fhv.issdistance.models,User,3,20,0,0,1,8,1,4,1,4
 issdistance,at.fhv.issdistance.handlers,HistoryHandler,5,47,2,4,1,13,2,4,0,3
 issdistance,at.fhv.issdistance.handlers,AuthHandler,27,62,8,8,6,16,7,6,1,4

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthEndpoint.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">issdistance</a> &gt; <a href="index.source.html" class="el_package">at.fhv.issdistance.endpoints</a> &gt; <span class="el_source">AuthEndpoint.java</span></div><h1>AuthEndpoint.java</h1><pre class="source lang-java linenums">package at.fhv.issdistance.endpoints;
 
 // Start of user code (user defined imports)
+import at.fhv.issdistance.handlers.AuthHandler;
 
 // End of user code
 
-import at.fhv.issdistance.handlers.AuthHandler;
 
 @org.springframework.web.bind.annotation.RestController
 <span class="nc" id="L10">public class AuthEndpoint {</span>
@@ -13,19 +13,19 @@ import at.fhv.issdistance.handlers.AuthHandler;
 	// End of user code
 	
 	
-	@org.springframework.web.bind.annotation.PostMapping(&quot;/logout&quot;)
-	public void logout(@org.springframework.web.bind.annotation.RequestParam(&quot;token&quot;) String token) throws Exception {
-		// Start of user code logout
-<span class="nc" id="L19">		AuthHandler.getInstance().logout(token);</span>
-		// End of user code
-<span class="nc" id="L21">	}</span>
-	
 	@org.springframework.web.bind.annotation.PostMapping(&quot;/login&quot;)
 	public String login(@org.springframework.web.bind.annotation.RequestParam(&quot;username&quot;) String username) throws Exception {
 		// Start of user code login
-<span class="nc" id="L26">		return AuthHandler.getInstance().login(username);</span>
+<span class="nc" id="L19">		return AuthHandler.getInstance().login(username);</span>
 		// End of user code
 	}
+	
+	@org.springframework.web.bind.annotation.PostMapping(&quot;/logout&quot;)
+	public void logout(@org.springframework.web.bind.annotation.RequestParam(&quot;token&quot;) String token) throws Exception {
+		// Start of user code logout
+<span class="nc" id="L26">		AuthHandler.getInstance().logout(token);</span>
+		// End of user code
+<span class="nc" id="L28">	}</span>
 	
 	// Start of user code (user defined operations)
 	

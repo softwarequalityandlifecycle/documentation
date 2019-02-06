@@ -25,28 +25,28 @@ public class HistoryHandler {
 <span class="fc" id="L25">	    return INSTANCE;</span>
 	}
 	
+	public void addHistory(String token, at.fhv.issdistance.models.DiscoveredResult result) throws Exception {
+		// Start of user code addHistory
+<span class="fc" id="L30">		User user = AuthHandler.getInstance().getUserByToken(token);</span>
+<span class="fc" id="L31">		DistanceHistoryItem item = new DistanceHistoryItem();</span>
+<span class="fc" id="L32">		item.setResult(result);</span>
+<span class="fc" id="L33">		item.setLatitude(result.getLatitude());</span>
+<span class="fc" id="L34">		item.setLongitude(result.getLongitude());</span>
+<span class="fc" id="L35">		user.getHistory().getItems().add(item);</span>
+		// End of user code
+<span class="fc" id="L37">	}</span>
+	
 	public at.fhv.issdistance.models.DistanceHistory getHistory(String token) throws Exception {
 		// Start of user code getHistory
-<span class="pc bpc" id="L30" title="2 of 4 branches missed.">		if (token != null &amp;&amp; !token.equals(&quot;&quot;)) {</span>
-<span class="fc" id="L31">			User user = AuthHandler.getInstance().getUserByToken(token);</span>
-<span class="fc" id="L32">			return user.getHistory();</span>
+<span class="pc bpc" id="L41" title="2 of 4 branches missed.">		if (token != null &amp;&amp; !token.equals(&quot;&quot;)) {</span>
+<span class="fc" id="L42">			User user = AuthHandler.getInstance().getUserByToken(token);</span>
+<span class="fc" id="L43">			return user.getHistory();</span>
 
 		} else {
-<span class="nc" id="L35">			throw new Exception(&quot;Token is empty&quot;);</span>
+<span class="nc" id="L46">			throw new Exception(&quot;Token is empty&quot;);</span>
 		}
 		// End of user code
 	}
-	
-	public void addHistory(String token, at.fhv.issdistance.models.DiscoveredResult result) throws Exception {
-		// Start of user code addHistory
-<span class="fc" id="L42">		User user = AuthHandler.getInstance().getUserByToken(token);</span>
-<span class="fc" id="L43">		DistanceHistoryItem item = new DistanceHistoryItem();</span>
-<span class="fc" id="L44">		item.setResult(result);</span>
-<span class="fc" id="L45">		item.setLatitude(result.getLatitude());</span>
-<span class="fc" id="L46">		item.setLongitude(result.getLongitude());</span>
-<span class="fc" id="L47">		user.getHistory().getItems().add(item);</span>
-		// End of user code
-<span class="fc" id="L49">	}</span>
 	
 	// Start of user code (user defined operations)
 	

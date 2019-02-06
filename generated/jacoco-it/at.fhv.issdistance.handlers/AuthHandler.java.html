@@ -38,32 +38,32 @@ public class AuthHandler {
 		// End of user code
 <span class="nc" id="L39">	}</span>
 	
-	public at.fhv.issdistance.models.User getUserByToken(String token) throws Exception {
-		// Start of user code getUserByToken
-
-<span class="pc bpc" id="L44" title="2 of 4 branches missed.">		if(token.equals(&quot;&quot;) || token == null) {</span>
-<span class="nc" id="L45">			throw new Exception();</span>
+	public String login(String username) throws Exception {
+		// Start of user code login
+<span class="pc bpc" id="L43" title="2 of 4 branches missed.">		if (username != null &amp;&amp; !username.equals(&quot;&quot;)) {</span>
+<span class="fc" id="L44">			String token = DigestUtils.md2Hex(username);</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">			if (!users.containsKey(token)) {</span>
+<span class="fc" id="L46">				User user = new User();</span>
+<span class="fc" id="L47">				user.setUsername(username);</span>
+<span class="fc" id="L48">				user.setHistory(new DistanceHistory());</span>
+<span class="fc" id="L49">				users.put(token, user);</span>
+			}
+<span class="fc" id="L51">			return token;</span>
 		}
-
-<span class="fc" id="L48">		return users.get(token);</span>
+		else {
+<span class="nc" id="L54">			throw new Exception(&quot;username is empty!&quot;);</span>
+		}
 		// End of user code
 	}
 	
-	public String login(String username) throws Exception {
-		// Start of user code login
-<span class="pc bpc" id="L54" title="2 of 4 branches missed.">		if (username != null &amp;&amp; !username.equals(&quot;&quot;)) {</span>
-<span class="fc" id="L55">			String token = DigestUtils.md2Hex(username);</span>
-<span class="fc bfc" id="L56" title="All 2 branches covered.">			if (!users.containsKey(token)) {</span>
-<span class="fc" id="L57">				User user = new User();</span>
-<span class="fc" id="L58">				user.setUsername(username);</span>
-<span class="fc" id="L59">				user.setHistory(new DistanceHistory());</span>
-<span class="fc" id="L60">				users.put(token, user);</span>
-			}
-<span class="fc" id="L62">			return token;</span>
+	public at.fhv.issdistance.models.User getUserByToken(String token) throws Exception {
+		// Start of user code getUserByToken
+
+<span class="pc bpc" id="L62" title="2 of 4 branches missed.">		if(token.equals(&quot;&quot;) || token == null) {</span>
+<span class="nc" id="L63">			throw new Exception();</span>
 		}
-		else {
-<span class="nc" id="L65">			throw new Exception(&quot;username is empty!&quot;);</span>
-		}
+
+<span class="fc" id="L66">		return users.get(token);</span>
 		// End of user code
 	}
 	
